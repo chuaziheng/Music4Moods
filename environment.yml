@@ -78,29 +78,29 @@ dependencies:
     - urllib3==1.26.3
     - wrapt==1.12.1
     - zipp==3.4.0
-    - zstd==1.4.8=h4e2f164_1
-    - setuptools==49.6.0=py37h03978a9_3
-    - tk==8.6.10=h8ffe710_1
-    - cffi==1.14.5=py37hd8e9650_0
-    - greenlet==0.4.17=py37hcc03f2d_2
-    - vs2015_runtime==14.28.29325=h5e1d092_3
-    - zope.interface==5.2.0=py37hcc03f2d_1
+    - zstd==1.4.8
+    - setuptools==49.6.0
+    - tk==8.6.10
+    - cffi==1.14.5
+    - greenlet==0.4.17
+    - vs2015_runtime==14.28.29325
+    - zope.interface==5.2.0
     - xz==5.2.5=h62dcd97_1
-    - wincertstore==0.2=py37h03978a9_1006
-    - certifi==2020.12.5=py37h03978a9_1
-    - gevent==21.1.2=py37hcc03f2d_0
-    - ca-certificates==2020.12.5=h5b45459_0
-    - jpeg==9d=h8ffe710_0
-    - pillow==8.1.1=py37h96663a1_0
-    - vc==14.2=hb210afc_3
-    - python==3.7.10=h7840368_100_cpython
-    - libtiff==4.2.0=hc10be44_0
-    - zlib==1.2.11=h62dcd97_1010
-    - lcms2==2.12=h2a16943_0
-    - libpng==1.6.37=h1d00b33_2
-    - freetype==2.10.4=h546665d_1
-    - lz4-c==1.9.3=h8ffe710_0
-    - openssl==1.1.1j=h8ffe710_0
-    - markupsafe==1.1.1=py37hcc03f2d_3
-    - sqlite==3.34.0=h8ffe710_0
+    - wincertstore==0.2
+    - certifi==2020.12.5
+    - gevent==21.1.2
+    - ca-certificates==2020.12.5
+    - jpeg==9d
+    - pillow==8.1.1
+    - vc==14.2
+    - python==3.7.10
+    - libtiff==4.2.0
+    - zlib==1.2.11
+    - lcms2==2.12
+    - libpng==1.6.37
+    - freetype==2.10.4
+    - lz4-c==1.9.3
+    - openssl==1.1.1j
+    - markupsafe==1.1.1
+    - sqlite==3.34.0
 prefix: C:\Users\chuaz\Anaconda3\envs\flask-basic
