@@ -11,7 +11,7 @@ $ pip install -r requirements.txt
 
 ## Run Flask
 
-Example usage:
+/path/to/basic-image-classifier>
 ```
 $ python app.py
 ```
