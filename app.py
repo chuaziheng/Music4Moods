@@ -22,12 +22,11 @@ logging.basicConfig(level=logging.INFO)
 app = Flask(__name__)
 
 # Model saved with Keras model.save()
-MODEL_PATH = 'models/model_resnet.h5'
+EMOTIONS_MODEL_PATH = 'models/emotion_model.hdf5'
 
 # Load your trained model
-model = load_model(MODEL_PATH)
+model = load_model(EMOTIONS_MODEL_PATH)
 print('Model loaded. Start serving...')
-# model._make_predict_function()          # Necessary
 
 # You can also use pretrained model from Keras
 # Check https://keras.io/applications/
@@ -40,20 +39,24 @@ print('Model loaded. Start serving...')
 # print('Model loaded. Check http://127.0.0.1:5000/')
 
 #---end---
+emotion_dict= {'Angry': 0, 'Sad': 5, 'Neutral': 4, 'Disgust': 1, 'Surprise': 6, 'Fear': 2, 'Happy': 3}
 
 def model_predict(img_path, model):
-    img = image.load_img(img_path, target_size=(224, 224))
+    img = image.load_img(img_path, target_size=(48, 48),color_mode='grayscale')
 
     # Preprocessing the image
-    x = image.img_to_array(img)
+    img = image.img_to_array(img)  # (48,48,1)
     # x = np.true_divide(x, 255)
-    x = np.expand_dims(x, axis=0)
+    img = np.expand_dims(img, axis=0) #(1,48,48,1)
 
     # Be careful how your trained model deals with the input
     # otherwise, it won't make correct prediction!
-    x = preprocess_input(x, mode='caffe')
+    # x = preprocess_input(x, mode='caffe')
+    # preds = model.predict(x)
+    predicted_class = np.argmax(model.predict(img))
+    label_map = dict((v,k) for k,v in emotion_dict.items())
+    preds = label_map[predicted_class]
 
-    preds = model.predict(x)
     return preds
 
 
@@ -75,15 +78,16 @@ def upload():
             basepath, 'uploads', secure_filename(f.filename))
         logging.info(f'image file path {file_path}')
         f.save(file_path)
-
-        # Make prediction
-        preds = model_predict(file_path, model)
-
-        # Process your result for human
-        # pred_class = preds.argmax(axis=-1)            # Simple argmax
-        pred_class = decode_predictions(preds, top=1)   # ImageNet Decode
-        result = str(pred_class[0][0][1])               # Convert to string
+        result = model_predict(file_path,model)
         return result
+        # Make prediction
+        # preds = model_predict(file_path, model)
+
+        # # Process your result for human
+        # # pred_class = preds.argmax(axis=-1)            # Simple argmax
+        # pred_class = decode_predictions(preds, top=1)   # ImageNet Decode
+        # result = str(pred_class[0][0][1])               # Convert to string
+        # return result
     return None
 
 
