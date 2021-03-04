@@ -23,7 +23,7 @@ logging.basicConfig(level=logging.INFO)
 app = Flask(__name__)
 
 # Model saved with Keras model.save()
-EMOTIONS_MODEL_PATH = 'models/emotion_model.hdf5'
+EMOTIONS_MODEL_PATH = 'models/EmotionDetectionModel.h5'
 AGE_SEX_MODEL_PATH = 'models/Age_sex_detection.h5'
 
 # Load your trained model
@@ -65,8 +65,7 @@ def model_predict(img_path, emo_model, agesex_model):
     preds = agesex_model.predict(img_norm)
     gender = gender_dict[int(np.round(preds[0][0][0]))]
     age = int(np.round(preds[1][0][0]))
-    result_tuple = (emotion_preds, gender, age)
-    return str(result_tuple) #emotion_preds, gender ,
+    return '{ ' + f'"emotion": {emotion_preds}, "gender": {gender}, "age": {age}' + ' }' #emotion_preds, gender ,
 
 
 @app.route('/', methods=['GET'])

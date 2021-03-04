@@ -1,4 +1,6 @@
 # Ignore everything in this directory
+emotion_model.hdf5
 model_resnet.h5
 # Except this file
 !.gitignore
+
