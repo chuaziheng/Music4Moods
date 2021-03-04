@@ -1,12 +1,15 @@
 # Basic-Image-Classifier
 
 ## Dependencies
-A repo with a `requirements.txt` file.
 
-This `requirements.txt` file lists all Python libraries that your notebooks depend on, and they will be installed using
-
+1. Get project dependencies 
 ```
-$ pip install -r requirements.txt
+conda env update -f environment.yml
+```
+
+2. When prompted, activate virtual environment
+```
+conda activate flask-basic
 ```
 
 ## Run Flask
