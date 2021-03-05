@@ -1,7 +1,10 @@
 {% extends "base.html" %} {% block content %}
 
-<h2>Image Classifier</h2>
+
 <div>
+    <center>
+    <h2>Mood-Based Music</h2>
+    <h5>It's selfie time!</h5>
     <form id="upload-file" method="post" enctype="multipart/form-data">
         <label for="imageUpload" class="upload-label">
             Choose...
@@ -24,14 +27,15 @@
     <h3 id="result">
         <span></span>
     </h3>
-
+</center>
     <body>
         <center>
             <h2 style="color: green"> Upload an image and get recommendations of Spotify Playlists based on your facial emotion! </h2>
             <h3> Click the button to generate a random string </h3>
 
             <form name="randomform">
-                <input type="button" value="Generate Spotify Playlist Link" onClick="randomString();">
+                <!-- <input type="button" value="Generate Spotify Playlist Link" onClick="randomString();"> -->
+                <input type = "button" onclick = "choosePlaylist()" value= "Generate Playlist!"  class="generate-label">
                 <br><br>
                 <b><p id="randomfield" style="color: green"> </p></b>
             </form>
@@ -180,7 +184,7 @@
 // // var answer = 'happy'; -->
 
 
-    <input type = "button" onclick = "choosePlaylist()" value= "Generate Playlist!">
+
 <div>
         <div id='happy' style="display:none">
             <h2>Happy Playlist</h2>
