@@ -1,8 +1,10 @@
+
 $(document).ready(function () {
     // Init
     $('.image-section').hide();
     $('.loader').hide();
     $('#result').hide();
+    $('#age').hide();
 
     // Upload Preview
     function readURL(input) {
@@ -21,13 +23,14 @@ $(document).ready(function () {
         $('#btn-predict').show();
         $('#result').text('');
         $('#result').hide();
+        $('#age').text('');
+        $('#age').hide();
         readURL(this);
     });
 
     // Predict
     $('#btn-predict').click(function () {
         var form_data = new FormData($('#upload-file')[0]);
-
         // Show loading animation
         $(this).hide();
         $('.loader').show();
@@ -45,10 +48,12 @@ $(document).ready(function () {
                 // Get and display the result
                 $('.loader').hide();
                 $('#result').fadeIn(600);
-                $('#result').text(' Result:  ' + data);
-                console.log('Success!');
+                $('#result').text(' Result:  ' + data);  //data.emotion
+                console.log('Boo!');
             },
         });
     });
 
 });
+
+export{data};
